@@ -1,0 +1,6 @@
+asgiref
+certifi
+Django
+sqlparse 
+tzdata
+wincertstore==0.2
