@@ -23,3 +23,17 @@ Once `pip` has finished downloading the dependencies:
 cd backend
 python manage.py runserver
 ```
+
+## Endpoints
+```
+    admin/
+    register
+    login/
+    login/refresh
+    logout
+    user
+    user/change_password
+    user/<int:user_id>
+    user/<int:user_id>/change_password
+    users
+```
