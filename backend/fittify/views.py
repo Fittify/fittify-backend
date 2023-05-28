@@ -67,41 +67,7 @@ class UserListView(APIView):
         users = User.objects.all()
         serializer = UserSerializer(users, many=True)
         return Response(serializer.data)
-
-
-# class UserEditView(APIView):
-#     permission_classes = (IsAdminUser|IsOwner, )
-
-#     def put(self, request, user_id=None):
-#         if user_id:
-#             return self.edit_user(request, User.objects.get(pk=user_id))
-        
-#         return self.edit_user(request, request.user)
-    
-#     def edit_user(self, request, user):
-#         serializer = UserSerializer(user, data=request.data)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data)
-#         return Response(serializer.error, status=400)
-
-
-# class UserDeleteView(APIView):
-#     permission_classes = (IsAdminUser|IsOwner, )
-
-#     def delete(self, request, user_id=None):
-#         if user_id:
-#             return self.delete_user(request, User.objects.get(pk=user_id))
-        
-#         return self.delete_user(request, request.user)
-    
-#     def delete_user(self, request, user):
-#         try:
-#             user.delete()
-#             return Response({"detail": "User deleted succesfully."})
-#         except User.DoesNotExist:
-#             return Response({"detail": "User doesn't exist."}, status=404)
-    
+ 
 
 class UserChangePasswordView(APIView):
     permission_classes = (IsAdminUser|IsOwner, )
