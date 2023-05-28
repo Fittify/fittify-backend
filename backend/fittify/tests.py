@@ -106,7 +106,6 @@ class UserCreationTests(TestCase):
             content_type='application/json',
             HTTP_AUTHORIZATION=f'Token {self.token}'
         )
-        print(response.data)
         self.assertEqual(response.status_code, 200)
 
         new_login_data = {
