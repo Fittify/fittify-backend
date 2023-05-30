@@ -26,9 +26,9 @@ python manage.py runserver
 
 ## Endpoints
 ```
-    admin/
+    admin
     register
-    login/
+    login
     login/refresh
     logout
     user
