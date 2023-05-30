@@ -48,7 +48,7 @@ class UserCreationTests(TestCase):
             "password": self.password
         }
 
-        response = self.client.post('/login/', data=login_data)
+        response = self.client.post('/login', data=login_data)
         self.assertEqual(response.status_code, 200)
         self.token = response.data['token']
 
@@ -62,7 +62,7 @@ class UserCreationTests(TestCase):
             'username': 'testuser',
             'password': 'Invalid',
         }
-        response = self.client.post('/login/', data=invalid_login_data)
+        response = self.client.post('/login', data=invalid_login_data)
         self.assertEqual(response.status_code, 400)
 
     def test_logout(self):
@@ -96,8 +96,7 @@ class UserCreationTests(TestCase):
         new_password = 'NewPassword123'
         changed_password = {
             'old_password': self.password,
-            'password': new_password,
-            'password2': new_password
+            'password': new_password
         }
 
         response = self.client.put(
@@ -112,5 +111,5 @@ class UserCreationTests(TestCase):
             "username": self.username,
             "password": new_password
         }
-        response = self.client.post('/login/', data=new_login_data)
+        response = self.client.post('/login', data=new_login_data)
         self.assertEqual(response.status_code, 200)

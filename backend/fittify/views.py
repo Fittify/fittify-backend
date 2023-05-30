@@ -84,10 +84,7 @@ class UserChangePasswordView(APIView):
         if serializer.is_valid():
             old_password = serializer.validated_data.get('old_password')
             new_password = serializer.validated_data.get('password')
-            new_password2 = serializer.validated_data.get('password2')
 
-            if new_password != new_password2:
-                return Response({"detail": "New passwords are different."}, status=400)
 
             if not user.check_password(old_password):
                 return Response({"detail": "Old password is incorrect."}, status=400)
