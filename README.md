@@ -21,6 +21,7 @@ pip install -r requirements.txt
 Once `pip` has finished downloading the dependencies:
 ```sh
 cd backend
+python manage.py migrate
 python manage.py runserver
 ```
 
