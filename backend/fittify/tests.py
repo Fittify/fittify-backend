@@ -18,7 +18,6 @@ class UserCreationTests(TestCase):
         user_data = {
             'username': self.username,
             'password': self.password,
-            'password2': self.password,
             'email': self.email,
             'first_name': self.first_name,
             'last_name': self.last_name,
