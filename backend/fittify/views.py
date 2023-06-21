@@ -6,6 +6,9 @@ from .serializers import RegisterSerializer, UserSerializer, ChangePasswordSeria
 from rest_framework.generics import CreateAPIView
 from rest_framework.authentication import TokenAuthentication
 from .permissions import IsOwner
+from rest_framework import generics
+from .serializers import LobbySerializer
+from .models import Lobby
 
 
 class RegisterView(CreateAPIView):
@@ -95,3 +98,7 @@ class UserChangePasswordView(APIView):
             return Response({"detail": "Password changed successfully."})
 
         return Response(serializer.errors, status=400)
+    
+    class LobbyView(generics.ListAPIView):
+        queryset = Lobby.objects.all()
+        serializer_class = LobbySerializer
