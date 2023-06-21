@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from .models import Lobby
 from django.contrib.auth.models import User
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
@@ -46,3 +47,10 @@ class ChangePasswordSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('old_password', 'password')
+
+
+class LobbySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Lobby
+        fields = ('id', 'code', 'host', 'title', 'sport', 'players', 'date_of_play', 'due_date', 'description', 'max_number_of_players', 'place')
+        
